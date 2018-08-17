@@ -1,0 +1,31 @@
+
+
+spring:
+  application:
+    name: configservice
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ruiace/config.git
+          #username: lly835@163.com
+          #password: T#27h*E$cg@%}j
+          #自定义本地仓库
+          basedir: E:\git\repo
+  rabbitmq:
+      username: guest
+      password: guest
+      host: 192.168.25.103
+      port: 5672
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+#暴露所有的端口
+management:
+  endpoints:
+    web:
+      expose: "*"
+server:
+  port: 3001

@@ -1,0 +1,61 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+    hostname: orderservice
+    instance-id: orderInstanceID
+
+server:
+  port: 7002
+
+env:
+  dev12
+
+girl:
+  name: zhangsanjie
+  age: 18
+
+
+spring:
+  application:
+    name: orderservice
+  datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     username: root
+     password: 123456
+     url: jdbc:mysql://127.0.0.1:3306/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 192.168.25.103
+    port: 5672
+  cloud:
+    stream:
+      bindings:
+        myMessages:
+          group: order #分布式环境下分组
+          content-type: application/json
+ #   name: orderservice
+  #cloud:
+   # config:
+   #   discovery:
+   #     enabled: true
+    #    service-id: CONFIGSERVICE
+    #  profile: dev
+#自定义轮询规则
+#PRODUCTSERVICE:
+ # ribbon:
+  #  NFLoadBalancerClassName: com.netflix.loadbalancer.RandomRule
+
+#spring:
+#  cloud:
+#    config:
+#      name: orderservice #需要从github上读取的资源名称，注意没有yml后缀名
+#      profile: dev   #本次访问的配置项
+#      label: master
+#      uri: http://localhost:3001  #本微服务启动后先去找3344号服务，通过SpringCloudConfig获取GitHub的服务地址
